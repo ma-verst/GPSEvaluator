@@ -1,11 +1,15 @@
 __author__ = 'Marcel Verst'
 __project__ = 'GPSEvaluator'
 __className__ = 'Point.py'
-__version__ = '06.10.2017'
+__version__ = '12.10.2017'
 
-# This class represents a single coordinate and gives Getter and Setter methods to access the data fields
+####################################################################################################################
+# This class represents a single coordinate and gives Getter and Setter methods to access the data fields.
+# Provides standard getter and setter methods and a print function to print the object on the console.
+####################################################################################################################
 class Point(object):
-    def __init__(self, longitude, latitude, altitude, accuracy, timestamp):
+    def __init__(self, identifier, longitude, latitude, altitude, accuracy, timestamp):
+        self.__identifier = identifier
         self.__longitude = longitude
         self.__latitude = latitude
         self.__altitude = altitude
@@ -14,6 +18,9 @@ class Point(object):
 
     def __del__(self):
         pass
+
+    def getIdentifier(self):
+        return self.__identifier
 
     def getLongitude(self):
         return self.__longitude
@@ -29,6 +36,9 @@ class Point(object):
 
     def getTimestamp(self):
         return self.__timestamp
+
+    def setIdentifier(self, identifier):
+        self.__identifier = identifier
 
     def setLongitude(self, longitude):
         self.__longitude = longitude
@@ -46,4 +56,9 @@ class Point(object):
         self.__timestamp = timestamp
 
     def toString(self):
-        print "Longitude["+str(self.__longitude)+"] Latitude["+str(self.__latitude)+"] Altitude["+str(self.__altitude)+"] Accuracy["+str(self.__accurcay)+"] Timestamp["+str(self.__timestamp)+"]"
+        print "Identifier["+str(self.__identifier)+\
+              "] Longitude["+str(self.__longitude)+\
+              "] Latitude["+str(self.__latitude)+\
+              "] Altitude["+str(self.__altitude)+\
+              "] Accuracy["+str(self.__accurcay)+\
+              "] Timestamp["+str(self.__timestamp)+"]"
